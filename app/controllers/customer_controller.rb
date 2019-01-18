@@ -3,17 +3,16 @@ class CustomerController < ApplicationController
 	def index
 	end
 
-	def thank_you
-	end
-
 	def create
 
 		@customer = Customer.new(customer_params)
 
 		if @customer.save
+			flash[:success] = "Thank You, for Registering."
 			redirect_to @customer
 		else
-			# redirect_to @customer
+			flash[:danger] = "Error in Registration, Please try again."
+			redirect_to 'new'
 		end
 
 	end
