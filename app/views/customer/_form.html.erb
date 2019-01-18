@@ -1,9 +1,12 @@
-<%= form_tag("/create", method: "post") do %>
-  <%= label_tag(:fname, "First Name:") %>
-  <%= text_field_tag(:fname) %>
-  <%= label_tag(:lname, "Last Name:") %>
-  <%= text_field_tag(:lname) %>
-  <%= label_tag(:phone, "Phone:") %>
-  <%= text_field_tag(:phone) %>
-  <%= submit_tag("Submit") %>
-<% end %>
+<form method="post" action="/create">
+
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+
+  <label for="phone">Phone</label>
+  <input id="phone" name="phone" type="text"/>
+  <br /> <br />
+
+  <input type="submit" value="Create Post" />
+
+</form>

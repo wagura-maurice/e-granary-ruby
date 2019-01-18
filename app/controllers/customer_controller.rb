@@ -1,7 +1,9 @@
 class CustomerController < ApplicationController
 	# layout false
 	def index
-		@customers = Customer.all
+	end
+
+	def thank_you
 	end
 
 	def create
@@ -19,7 +21,7 @@ class CustomerController < ApplicationController
 	# private to make sure it can't be called outside its intended context.
 	private
 	  def customer_params
-	    params.require(:customer).permit(:fname, :lname, :phone)
+	    params.permit(:name, :phone)
 	  end
 
 end
